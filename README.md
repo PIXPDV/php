@@ -13,7 +13,7 @@ Por ser uma transferência eletrônica instantânea, em ambiente seguro, o PIXPD
 
     use PIXPDV\PIXPDV;
 
-    $pixpdv = new PIXPDV("", "", "");
+    $pixpdv = new PIXPDV("cnpj", "token", "secret");
 
     echo json_encode($pixpdv->statusToken());
     echo json_encode($pixpdv->gerarQRDinamico(2.50, 5, "Teste"));
