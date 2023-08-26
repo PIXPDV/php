@@ -1,9 +1,10 @@
 # Biblioteca PHP para integrar sistemas com a PIXPDV
 
-Segue exemplo abaixo:
+
+# Instale a Biblioteca PIXPDV:
+<pre>composer require pixpdv/pixpdv-php:dev-main</pre>
+# Segue exemplo abaixo:
 <pre>
-    
-    // INSTALE A BIBLIOTECA COM composer require pixpdv/pixpdv-php:dev-main
 
     include "vendor/autoload.php";
 
