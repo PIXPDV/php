@@ -1,0 +1,20 @@
+{
+    "name": "pixpdv/pixpdv-php",
+    "description": "Biblioteca para integrar com o sistema PIXPDV",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "PIXPDV",
+            "email": "sac@pixpdv.com.br"
+        }
+    ],
+    "require": {
+        "php": ">=7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "PIXPDV\\": "src/PIXPDV/"
+        }
+    }
+}
