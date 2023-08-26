@@ -1,5 +1,7 @@
 <?php
 
+namespace PIXPDV;
+
 class PIXPDV {
     private $homologacao;
     private $cnpj;
