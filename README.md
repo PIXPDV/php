@@ -1,9 +1,12 @@
 # Biblioteca PHP para integrar sistemas com a PIXPDV
 
+## Porque PIXPDV?
 
-# Instale a Biblioteca PIXPDV:
+Por ser uma transferência eletrônica instantânea, em ambiente seguro, o PIXPDV se alinha ao ritmo do comércio e negócios em geral. Não há necessidade de esperar o próximo dia útil ou a próxima janela de horário para receber um pagamento. O PIXPDV funciona 24 horas, 7 dias por semana. Os custos são menores e há facilidade na integração com a conciliação de pagamentos. O PIXPDV na prática tem o mesmo efeito do pagamento em dinheiro (em espécie).
+
+## Instale a Biblioteca PIXPDV:
 <pre>composer require pixpdv/pixpdv-php:dev-main</pre>
-# Segue exemplo abaixo:
+## Segue exemplo abaixo:
 <pre>
 
     include "vendor/autoload.php";
