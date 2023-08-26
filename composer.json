@@ -3,6 +3,7 @@
     "description": "Biblioteca para integrar com o sistema PIXPDV",
     "type": "library",
     "license": "MIT",
+    "minimum-stability": "dev",
     "authors": [
         {
             "name": "PIXPDV",
