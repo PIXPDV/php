@@ -3,8 +3,6 @@
 Segue exemplo abaixo:
 <pre>
     
-<?php
-
     // INSTALE A BIBLIOTECA COM composer require pixpdv/pixpdv-php:dev-main
 
     include "vendor/autoload.php";
@@ -57,6 +55,4 @@ Segue exemplo abaixo:
     echo json_encode($pixpdv->retirarSaldo(0.25));
     echo json_encode($pixpdv->extrato("01082023", "26082023"));
 
-
-?>
 </pre>
