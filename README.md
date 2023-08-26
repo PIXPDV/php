@@ -2,6 +2,7 @@
 
 Segue exemplo abaixo:
 <pre>
+    
 <?php
 
     // INSTALE A BIBLIOTECA COM composer require pixpdv/pixpdv-php:dev-main
