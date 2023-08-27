@@ -42,7 +42,7 @@ class PIXPDV {
         return json_decode($response, true);
     }
 
-    public function gerarQRDinamico($valor, $minutos, $msg, $imagem = false) {
+    public function QRDinamico($valor, $minutos, $msg, $imagem = false) {
         $body = json_encode([
             "valor" => $valor,
             "minutos" => $minutos,
@@ -69,7 +69,7 @@ class PIXPDV {
         return json_decode($response, true);
     }
 
-    public function gerarQRCobranca(string $valor, string $vencimento, int $expira, string $msg, array $pagador, array $juros, array $multa, array $desconto, bool $img = false, string $documento = "") {
+    public function QRCobranca(string $acao, string $valor, string $vencimento, int $expira, string $msg, array $pagador, array $juros, array $multa, array $desconto, bool $img = false, string $documento = "") {
         $body = json_encode([
             "valor" => $valor,
             "vencimento" => $vencimento,
@@ -89,7 +89,7 @@ class PIXPDV {
             'Authorization: Basic ' . base64_encode($this->cnpj . ':' . $this->token)
         ];
 
-        curl_setopt($this->instacia,CURLOPT_CUSTOMREQUEST, 'POST');
+        curl_setopt($this->instacia,CURLOPT_CUSTOMREQUEST, "POST");
         curl_setopt($this->instacia, CURLOPT_URL, $this->homologacao === false ? "https://pixpdv.com.br/api/v1/qrcobranca" : "https://pixpdv.com.br/api-h/v1/qrcobranca");
         curl_setopt($this->instacia, CURLOPT_POSTFIELDS, $body);
         curl_setopt($this->instacia, CURLOPT_HTTPHEADER, $headers);
@@ -102,7 +102,43 @@ class PIXPDV {
         return json_decode($response, true);
     }
 
-    public function statusQRCode(string $qrcodeid) {
+    public function QRCobrancaRemove(string $qrcodeid) {
+        $headers = [
+            'Content-Type: application/json',
+            'Authorization: Basic ' . base64_encode($this->cnpj . ':' . $this->token)
+        ];
+
+        curl_setopt($this->instacia,CURLOPT_CUSTOMREQUEST, 'DELETE');
+        curl_setopt($this->instacia, CURLOPT_URL, $this->homologacao === false ? "https://pixpdv.com.br/api/v1/qrcobranca?qrcodeid=" . $qrcodeid : "https://pixpdv.com.br/api-h/v1/qrcobranca?qrcodeid=" . $qrcodeid);
+        curl_setopt($this->instacia, CURLOPT_HTTPHEADER, $headers);
+
+        $response = curl_exec($this->instacia);
+        if ($response === false) {
+            return curl_error($this->instacia);
+        }
+
+        return json_decode($response, true);
+    }
+
+    public function QRDinamicoRemove(string $qrcodeid) {
+        $headers = [
+            'Content-Type: application/json',
+            'Authorization: Basic ' . base64_encode($this->cnpj . ':' . $this->token)
+        ];
+
+        curl_setopt($this->instacia,CURLOPT_CUSTOMREQUEST, 'DELETE');
+        curl_setopt($this->instacia, CURLOPT_URL, $this->homologacao === false ? "https://pixpdv.com.br/api/v1/qrdinamico?qrcodeid=" . $qrcodeid : "https://pixpdv.com.br/api-h/v1/qrdinamico?qrcodeid=" . $qrcodeid);
+        curl_setopt($this->instacia, CURLOPT_HTTPHEADER, $headers);
+
+        $response = curl_exec($this->instacia);
+        if ($response === false) {
+            return curl_error($this->instacia);
+        }
+
+        return json_decode($response, true);
+    }
+
+    public function QRStatus(string $qrcodeid) {
         $headers = [
             'Content-Type: application/json',
             'Authorization: Basic ' . base64_encode($this->cnpj . ':' . $this->token)
@@ -120,7 +156,7 @@ class PIXPDV {
         return json_decode($response, true);
     }
 
-    public function devolverPagamento(string $qrcodeid) {
+    public function QRRefund(string $qrcodeid) {
         $body = json_encode(["qrcodeid" => $qrcodeid]);
 
         $headers = [
@@ -176,7 +212,7 @@ class PIXPDV {
         return json_decode($response, true);
     }
 
-    public function retirarSaldo(float $valor) {
+    public function Retirada(float $valor) {
         $body = json_encode(["valor" => $valor]);
 
         $headers = [
