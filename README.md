@@ -16,7 +16,7 @@ Por ser uma transferência eletrônica instantânea, em ambiente seguro, o PIXPD
     $pixpdv = new PIXPDV("cnpj", "token", "secret", true); // true para produção e false para homologação
 
     echo json_encode($pixpdv->statusToken());
-    echo json_encode($pixpdv->gerarQRDinamico(2.50, 5, "Teste"));
+    echo json_encode($pixpdv->QRDinamico(2.50, 5, "Teste"));
 
     // Objeto pagador
     $pagador = [
@@ -51,12 +51,12 @@ Por ser uma transferência eletrônica instantânea, em ambiente seguro, o PIXPD
         "data" => "27/08/2023"
     ];
 
-    echo json_encode($pixpdv->gerarQRCobranca(2.50, "30/08/2023", 30, "Cobrança Teste", $pagador, $juros, $multa, $desconto));
-    echo json_encode($pixpdv->statusQRCode("E7D557E5-E518-406E-9541-2FF4B5312A44"));
-    echo json_encode($pixpdv->devolverPagamento("E7D557E5-E518-406E-9541-2FF4B5312A44"));
+    echo json_encode($pixpdv->QRCobranca(2.50, "30/08/2023", 30, "Cobrança Teste", $pagador, $juros, $multa, $desconto));
+    echo json_encode($pixpdv->QRCodeStatus("E7D557E5-E518-406E-9541-2FF4B5312A44"));
+    echo json_encode($pixpdv->QRRefund("E7D557E5-E518-406E-9541-2FF4B5312A44"));
     // echo json_encode($pixpdv->resumo("01082023", "26082023", "emissao"));
     echo json_encode($pixpdv->saldo());
-    echo json_encode($pixpdv->retirarSaldo(0.25));
+    echo json_encode($pixpdv->Retirada(0.25));
     echo json_encode($pixpdv->extrato("01082023", "26082023"));
 
 </pre>
