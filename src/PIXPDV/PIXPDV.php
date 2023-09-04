@@ -11,8 +11,8 @@ class PIXPDV {
     private $urlbase;
 
     public function __construct($cnpj, $token, $secret, $homologacao = true) {
-        // $this->homologacao = $homologacao;
-        $this->urlbase = $homologacao === false ? "https://pixpdv.com.br/api/v1/" : "https://pixpdv.com.br/api-h/v1/";
+        $this->homologacao = $homologacao;
+        $this->urlbase = $this->homologacao === false ? "https://pixpdv.com.br/api/v1/" : "https://pixpdv.com.br/api-h/v1/";
         $this->cnpj = $this->homologacao === false ? $cnpj : '00641418000188';
         $this->token = $this->homologacao === false ? $token : 'tk-ezI0OTgwMzRDLUE1MzctNDM3QS1CQTk0LUZFODlFMEE0MzIyNn0';
         $this->secret = $this->homologacao === false ? $secret : 'sk-e0JBNTFGRTY0LTczMkYtNDYxNC1CQ0Q1LUI0OTVDODgxOTUwRX0';
